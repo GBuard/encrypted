@@ -177,7 +177,7 @@ export default function Home() {
                 >
                     <ScrambledText
                         className="scrambled-text-demo"
-                        radius={100}
+                        radius={200}
                         duration={1.2}
                         speed={0.5}
                         scrambleChars=".:"
