@@ -14,7 +14,7 @@ export default function Home() {
                 variant="square"
                 pixelSize={3}
                 color="#2e2e2e"
-                patternScale={4}
+                patternScale={4.25}
                 patternDensity={1.2}
                 pixelSizeJitter={0.5}
                 enableRipples
@@ -150,14 +150,15 @@ export default function Home() {
                     interactive={true}
                 />
             </div>
-
+                
             <section
                 style={{
                     position: "absolute",
                     marginTop: "200px",
                     left: 0,
-                    width: "100%",
-                    minHeight: "12rem",
+                    width: "50%",
+                    paddingTop: 34,
+                    paddingBottom: 34,
                     background: "#ffffff",
                     border: "2px solid #000",
                     display: "flex",
@@ -185,9 +186,8 @@ export default function Home() {
                             [ Accueil Collection Automne Hiver 2025 ]
                         </span>
                         <br />
-                        Collection Automne Hiver 2025. Similique pariatur
-                        dignissimos porro eius quam doloremque et enim velit
-                        nobis maxime.
+                        Collection Automne Hiver 2025. Sneakers, Sacs, Vestes,
+                         New In, Chaussures, Jeans, Hoodies, Casquettes
                     </ScrambledText>
                 </div>
             </section>
@@ -197,14 +197,44 @@ export default function Home() {
             <section
                 style={{
                     position: "relative",
-                    marginTop: "calc(200px + 12rem)",
-                    width: "100%",
+                    marginTop: "calc(400px + 12rem)",
+                    width: "80%",
                     minHeight: "12rem",
                     zIndex: 1,
+                    background: "#ffffff",
+                    border: "2px solid #000",
+                    padding: "2rem",
                 }}
             >
-                lorem ipsum
+                <div
+                    style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(4, 1fr)",
+                        gridTemplateRows: "repeat(6, 1fr)",
+                        gap: "1.5rem",
+                        width: "100%",
+                    }}
+                >
+                    {Array.from({ length: 24 }).map((_, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                aspectRatio: "3/4",
+                                border: "2px solid #000",
+                                background: "#f5f5f5",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontSize: "0.875rem",
+                                color: "#666",
+                            }}
+                        >
+                            Produit {index + 1}
+                        </div>
+                    ))}
+                </div>
             </section>
         </div>
+        
     );
 }
