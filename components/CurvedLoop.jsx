@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect, useState, useMemo, useId } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import './CurvedLoop.css';
 
 const CurvedLoop = ({
@@ -8,7 +8,8 @@ const CurvedLoop = ({
   className,
   curveAmount = 400,
   direction = 'left',
-  interactive = true
+  interactive = true,
+  pathId: providedPathId
 }) => {
   const text = useMemo(() => {
     const hasTrailing = /\s|\u00A0$/.test(marqueeText);
@@ -20,8 +21,16 @@ const CurvedLoop = ({
   const pathRef = useRef(null);
   const [spacing, setSpacing] = useState(0);
   const [offset, setOffset] = useState(0);
-  const uid = useId();
-  const pathId = `curve-${uid}`;
+  const pathId = useMemo(() => {
+    if (providedPathId) return providedPathId;
+    const base = `${marqueeText}-${curveAmount}-${direction}`;
+    let hash = 0;
+    for (let i = 0; i < base.length; i += 1) {
+      hash = (hash << 5) - hash + base.charCodeAt(i);
+      hash |= 0;
+    }
+    return `curve-${Math.abs(hash)}`;
+  }, [providedPathId, marqueeText, curveAmount, direction]);
   const pathD = `M-100,40 Q500,${40 + curveAmount} 1540,40`;
 
   const dragRef = useRef(false);

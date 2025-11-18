@@ -3,6 +3,7 @@ import Image from "next/image";
 import PixelBlast from "../components/PixelBlast";
 import PixelCard from "../components/PixelCard";
 import CurvedLoop from "../components/CurvedLoop";
+import ScrambledText from "../components/ScrambledText";
 
 export default function Home() {
     return (
@@ -133,7 +134,7 @@ export default function Home() {
             <div
                 style={{
                     position: "absolute",
-                    top: 150,
+                    top: 180,
                     left: 0,
                     width: "100%",
                     height: "10rem",
@@ -149,6 +150,49 @@ export default function Home() {
                     interactive={true}
                 />
             </div>
+
+            <section
+                style={{
+                    position: "absolute",
+                    marginTop: "200px",
+                    left: 0,
+                    width: "100%",
+                    minHeight: "12rem",
+                    background: "#ffffff",
+                    border: "2px solid #000",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    zIndex: 20,
+                }}
+            >
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "100%",
+                        height: "50%",
+                    }}
+                >
+                    <ScrambledText
+                        className="scrambled-text-demo"
+                        radius={100}
+                        duration={1.2}
+                        speed={0.5}
+                        scrambleChars=".:"
+                        style={{ color: "#000" }}
+                    >
+                        <span style={{ fontWeight: "bold", fontSize: "2em" }}>
+                            [ Accueil Collection Automne Hiver 2025 ]
+                        </span>
+                        <br />
+                        Collection Automne Hiver 2025. Similique pariatur
+                        dignissimos porro eius quam doloremque et enim velit
+                        nobis maxime.
+                    </ScrambledText>
+                </div>
+            </section>
         </div>
     );
 }
