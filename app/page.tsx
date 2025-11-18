@@ -163,21 +163,19 @@ export default function Home() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    zIndex: 20,
+                    zIndex: 1
+                    ,
                 }}
             >
                 <div
                     style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        display: "flex",   
                         width: "100%",
-                        height: "50%",
                     }}
                 >
                     <ScrambledText
                         className="scrambled-text-demo"
-                        radius={200}
+                        radius={150}
                         duration={1.2}
                         speed={0.5}
                         scrambleChars=".:"
@@ -192,6 +190,20 @@ export default function Home() {
                         nobis maxime.
                     </ScrambledText>
                 </div>
+            </section>
+
+
+
+            <section
+                style={{
+                    position: "relative",
+                    marginTop: "calc(200px + 12rem)",
+                    width: "100%",
+                    minHeight: "12rem",
+                    zIndex: 1,
+                }}
+            >
+                lorem ipsum
             </section>
         </div>
     );
