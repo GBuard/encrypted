@@ -4,6 +4,82 @@ import PixelBlast from "../components/PixelBlast";
 import PixelCard from "../components/PixelCard";
 import CurvedLoop from "../components/CurvedLoop";
 import ScrambledText from "../components/ScrambledText";
+import Masonry from "../components/Masonry";
+
+const catalogItems = [
+    {
+        id: "look-01",
+        img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-01",
+        height: 520,
+    },
+    {
+        id: "look-02",
+        img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-02",
+        height: 420,
+    },
+    {
+        id: "look-03",
+        img: "https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-03",
+        height: 640,
+    },
+    {
+        id: "look-04",
+        img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-04",
+        height: 380,
+    },
+    {
+        id: "look-05",
+        img: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-05",
+        height: 560,
+    },
+    {
+        id: "look-06",
+        img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-06",
+        height: 460,
+    },
+    {
+        id: "look-07",
+        img: "https://images.unsplash.com/photo-1445510861639-5651173bc5d5?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-07",
+        height: 600,
+    },
+    {
+        id: "look-08",
+        img: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-08",
+        height: 440,
+    },
+    {
+        id: "look-09",
+        img: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-09",
+        height: 500,
+    },
+    {
+        id: "look-10",
+        img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-10",
+        height: 360,
+    },
+    {
+        id: "look-11",
+        img: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-11",
+        height: 540,
+    },
+    {
+        id: "look-12",
+        img: "https://images.unsplash.com/photo-1459348954176-7d99db8a21d5?auto=format&fit=crop&w=800&q=80&grayscale",
+        url: "/catalogue/look-12",
+        height: 600,
+    },
+];
 
 export default function Home() {
     return (
@@ -148,9 +224,10 @@ export default function Home() {
                     curveAmount={400}
                     direction="left"
                     interactive={true}
+                    pathId="hero-loop"
                 />
             </div>
-                
+
             <section
                 style={{
                     position: "absolute",
@@ -164,13 +241,12 @@ export default function Home() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    zIndex: 1
-                    ,
+                    zIndex: 1,
                 }}
             >
                 <div
                     style={{
-                        display: "flex",   
+                        display: "flex",
                         width: "100%",
                     }}
                 >
@@ -183,58 +259,41 @@ export default function Home() {
                         style={{ color: "#000" }}
                     >
                         <span style={{ fontWeight: "bold", fontSize: "2em" }}>
-                            [ Accueil Collection Automne Hiver 2025 ]
+                            [ Accueil Collection Automne Hiver 2025 © ]
                         </span>
                         <br />
                         Collection Automne Hiver 2025. Sneakers, Sacs, Vestes,
-                         New In, Chaussures, Jeans, Hoodies, Casquettes
+                        New In, Chaussures, Jeans, Hoodies, Casquettes.
                     </ScrambledText>
                 </div>
             </section>
-
-
 
             <section
                 style={{
                     position: "relative",
                     marginTop: "calc(400px + 12rem)",
                     width: "80%",
-                    minHeight: "12rem",
+                    minHeight: "40rem",
                     zIndex: 1,
                     background: "#ffffff",
                     border: "2px solid #000",
                     padding: "2rem",
+                    overflow: "visible",
                 }}
             >
-                <div
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(4, 1fr)",
-                        gridTemplateRows: "repeat(6, 1fr)",
-                        gap: "1.5rem",
-                        width: "100%",
-                    }}
-                >
-                    {Array.from({ length: 24 }).map((_, index) => (
-                        <div
-                            key={index}
-                            style={{
-                                aspectRatio: "3/4",
-                                border: "2px solid #000",
-                                background: "#f5f5f5",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                fontSize: "0.875rem",
-                                color: "#666",
-                            }}
-                        >
-                            Produit {index + 1}
-                        </div>
-                    ))}
-                </div>
+                <Masonry
+                    items={catalogItems}
+                    animateFrom="bottom"
+                    duration={0.7}
+                    stagger={0.06}
+                    scaleOnHover={true}
+                    hoverScale={0.97}
+                    blurToFocus={true}
+                    colorShiftOnHover={true}
+                    triggerOnView
+                    viewThreshold={0.35}
+                />
             </section>
         </div>
-        
     );
 }
