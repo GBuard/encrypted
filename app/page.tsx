@@ -9,19 +9,19 @@ import Masonry from "../components/Masonry";
 const catalogItems = [
     {
         id: "look-01",
-        img: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80&grayscale",
+        img: "/Sweatshirts/sweatshirt1.webp",
         url: "/catalogue/look-01",
-        height: 520,
+        height: 800,
     },
     {
         id: "look-02",
-        img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80&grayscale",
+        img: "/Sweatshirts/PANT-BLACK_1680x.webp",
         url: "/catalogue/look-02",
-        height: 420,
+        height: 1200,
     },
     {
         id: "look-03",
-        img: "https://images.unsplash.com/photo-1475180098004-ca77a66827be?auto=format&fit=crop&w=800&q=80&grayscale",
+        img: "/Sweatshirts/sweatshirt2.jpg",
         url: "/catalogue/look-03",
         height: 640,
     },
@@ -289,7 +289,7 @@ export default function Home() {
                     scaleOnHover={true}
                     hoverScale={0.97}
                     blurToFocus={true}
-                    colorShiftOnHover={true}
+                    colorShiftOnHover={false}
                     triggerOnView
                     viewThreshold={0.35}
                 />
